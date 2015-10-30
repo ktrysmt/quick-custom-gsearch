@@ -15,4 +15,4 @@ At first, get `.crx`, and just D&D it to extention page in your Chrome.
 
 ## Download
 
-Please access release page.
+Please access and get at [release page](https://github.com/aqafiam/quick-custom-gsearch/releases/tag/v0.1).
