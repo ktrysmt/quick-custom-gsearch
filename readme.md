@@ -7,7 +7,7 @@ You can access the control panel to manage interval quickly, just one click.
 
 ## Screenshot
 
-[]("./capture.png")
+![Screenshot](./capture.png)
 
 ## Install
 
