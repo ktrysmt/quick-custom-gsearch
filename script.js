@@ -145,7 +145,7 @@
     if (isPlainSearch()) {
       bindElement();
       var t = localStorage.getItem("quick-custom-gsearch");
-      if (typeof t === "undefined" || t === "null") {
+      if (!t || ( t !== "none" && t !== "6month" && t !== "1year" && t !== "2year" && t !== "3year" )) { 
         t = "none";
         localStorage.setItem("quick-custom-gsearch",t); 
       }
