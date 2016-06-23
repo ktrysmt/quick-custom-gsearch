@@ -11,8 +11,8 @@ You can access the control panel to manage interval quickly, just one click.
 
 ## Install
 
-At first, get `.crx`, and just D&D it to extention page in your Chrome.
-
-## Download
-
-Please access and get at [release page](https://github.com/aqafiam/quick-custom-gsearch/releases/tag/v0.1).
+1. Clone this repository to any local directory.
+2. Open <chrome://extensions/> in Your Chrome.
+3. Click load-unpacked 
+4. Select the path cloned
+5. 8-)
