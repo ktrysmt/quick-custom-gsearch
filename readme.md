@@ -15,4 +15,4 @@ You can access the control panel to manage interval quickly, just one click.
 2. Open <chrome://extensions/> in Your Chrome.
 3. Click load-unpacked 
 4. Select the path cloned
-5. 8)
+5. :smile:
