@@ -152,6 +152,7 @@
       setState(t);    
       setRange(t);   
       run(t);
+      localStorage.setItem("quick-custom-gsearch","none"); 
     }
 
 })();
