@@ -1,4 +1,4 @@
-# quick-custom-gsearch
+# Quick Custom GSearch
 
 ## What's this
 
@@ -11,8 +11,8 @@ You can access the control panel to manage interval quickly, just one click.
 
 ## Installation
 
-Please download and install from [Chrome webstore](https://chrome.google.com/webstore/detail/quick-custom-gsearch/dcdmfmmmmpjgfaffnaokjpifnihmhaon?utm_source=chrome-app-launcher-info-dialog).
+Please download and install from [Chrome WebStore](https://chrome.google.com/webstore/detail/quick-custom-gsearch/dcdmfmmmmpjgfaffnaokjpifnihmhaon?utm_source=chrome-app-launcher-info-dialog).
 
 ## Author
 
-[ktrysmt](https://github.com/ktrysmt)
+[@ktrysmt](https://github.com/ktrysmt)
