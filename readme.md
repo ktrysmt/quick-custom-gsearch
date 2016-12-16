@@ -5,6 +5,10 @@
 This is a Chrome Extention.
 You can access the control panel to manage interval quickly, just one click.
 
+## Supported language
+
+- Japanese Only :disappointed_relieved:
+
 ## Screenshot
 
 ![Screenshot](./capture.png)
