@@ -25,3 +25,7 @@ Please download and install from [Chrome WebStore](https://chrome.google.com/web
 ## Author
 
 [@ktrysmt](https://github.com/ktrysmt)
+
+## License
+
+MIT
