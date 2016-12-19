@@ -171,6 +171,7 @@
 
       var Add = function () {
         var range = Model.GetRangeFromStorage();
+        console.log(range);
         View.BindElement();
         View.SetCssState(range);
         Model.SetRangeToStorage("none");
@@ -192,7 +193,15 @@
             Purge();
           }
       });
-      Observer.observe(document.getElementById("main"), { childList: true });  
+
+      var e = document.getElementById("main");
+      if (e !== null) {
+        if (Browser.IsTextSearch() === true && Browser.IsUCS() === true){
+          console.log("k");
+          Add();
+        }
+        Observer.observe(e, { childList: true });     
+      }
     }
 
     Main();
