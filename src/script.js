@@ -163,31 +163,49 @@
 
     var Main = function () {
 
-      var CommonInit = function () {
+      var Add = function () {
         var o = Browser.ParseURI();    
-        if (Browser.IsAllSearch(o) === true) {
+        // if (Browser.IsAllSearch(o) === true) {
           var range = Model.GetRangeFromStorage();
           View.BindElement();
           View.SetCssState(range);
-        }
+        // }
         Model.SetRangeToStorage("none");
+      }
+
+      var Purge = function(){
+        console.log("purged");
       }
 
       if (Model.GetRangeFromStorage() === "none") {
         Browser.ReplaceToNeutralIfExistRange();
       }
 
-      if (Browser.IsUCS() === false) {
-        var Observer = new MutationObserver( function(mutations) {
-            if (Browser.IsUCS() === true) CommonInit();
-        });
-        Observer.observe(document.getElementById("main"), { childList: true }); 
-        return true;
-      }
-      else {
-        CommonInit();
-        return true;
-      }
+      var Observer = new MutationObserver( function(mutations) {
+          if (Browser.IsUCS() === true){
+            var o = Browser.ParseURI();    
+            if (Browser.IsAllSearch(o) === true) {
+               Add();  
+            } 
+          } 
+          else {
+             Purge();
+          }
+      });
+      Observer.observe(document.getElementById("main"), { childList: true });  
+
+      // if (Browser.IsUCS() === false) {
+      //   var Observer = new MutationObserver( function(mutations) {
+      //       if (Browser.IsUCS() === true) CommonInit();
+      //   });
+      //   Observer.observe(document.getElementById("main"), { childList: true }); 
+      //   return true;
+      // }
+      // else {
+      //   CommonInit();
+      //   return true;
+      // }
+
     }
 
     Main();
