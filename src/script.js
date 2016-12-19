@@ -50,9 +50,12 @@
       QuickChange : function () {
         var t = this.getAttribute("data");
         Model.SetRangeToStorage(t);
-        var o = Browser.ParseURI();
+        var o = Browser.QueryHashToArray();
         var q = o["q"];
         Browser.RewriteURI(t, q);
+      },
+      DeleteElement : function () { // TODO
+        // var e = document.querySelector(".quick-custom-gsearch");
       }
     };
 
@@ -108,34 +111,38 @@
         }
         return true;
       },
-      IsAllSearch : function (o) {
-        if (typeof(o["tbm"]) === "undefined" || o["tbm"] === "") {
+      IsTextSearch: function() {
+        if (location.pathname !== "/" && !/^\/(search|webhp)$/.test(location.pathname)) return false;
+        var q = (/&/.test(location.search)) ? location.search.slice(1).split("&") : [];
+        var h = (/#/.test(location.hash))   ? location.hash.slice(1).split("&") : [];
+        var o = {};
+        for (var i = 0; i < h.length; ++i) {
+          q.push(h[i]);
+        }
+        for (var i = 0; i < q.length; ++i) {
+          var a = q[i].split('=');    
+          o[a[0]] = a[1];          
+        }
+        if (typeof o["tbm"] === "undefined" || o["tbm"] === "") {
           return true;
         }
-        return false; 
-      }, 
-      ParseURI : function() {
-        var s = {};
+        return false;
+      },
+      QueryHashToArray() {
+        if (location.pathname !== "/" && !/^\/(search|webhp)$/.test(location.pathname)) return false;
         var o = {};
-        if ( /^\/search$/.test(location.pathname) ) {
-          s = location.search.slice(1).split("&");
+        var q = (/&/.test(location.search)) ? location.search.slice(1).split("&") : [];
+        var h = (/#/.test(location.hash))   ? location.hash.slice(1).split("&") : [];
+        for (var i = 0; i < h.length; ++i) {
+          q.push(h[i]);
         }
-        else if (location.pathname === "/" || /^\/webhp$/.test(location.pathname)) {
-          if (/#q=/.test(location.hash)) {
-            s = location.hash.split("#")
-          }
-          else if (/&q=/.test(location.hash)) {
-            s = location.hash.split("&")
-          }
-        }
-        for (var i = 0; i < s.length; ++i) {
-          var a = s[i].split('=');    
-          o[a[0]] = a[1];         
+        for (var i = 0; i < q.length; ++i) {
+          var a = q[i].split('=');    
+          o[a[0]] = a[1];          
         }
         return o;
       },
       RewriteURI : function(t, q) {
-        var hash    = window.location.search;
         Model.START = Model.GetStartRange(t);
         Model.END   = Model.GetEndRange();
         if (t === "none") {
@@ -149,12 +156,11 @@
         }
       },
       ReplaceToNeutralIfExistRange : function (){
-        var pathname = window.location.pathname;
         var hash     = window.location.search;
-        var o        = Browser.ParseURI();
-        var q        = (typeof o["q"] !== 'undefined') ? o["q"] : "";
+        var o        = Browser.QueryHashToArray();
+        var q        = o["q"];
         var pattern  = /(tbs=cdr:1,cd_min:)(.*?)(,cd_max:)/;
-        if( hash.match(pattern) && Browser.IsAllSearch(o) ) {
+        if( hash.match(pattern) && Browser.IsTextSearch() ) {
           var path = "/search?hl=ja&site=webhp&biw=810&bih=1306&q=" + q + "&oq=" + q + "&ie=UTF-8&tbm=";
           window.location.href = path;
         }
@@ -163,31 +169,30 @@
 
     var Main = function () {
 
-      var CommonInit = function () {
-        var o = Browser.ParseURI();    
-        if (Browser.IsAllSearch(o) === true) {
-          var range = Model.GetRangeFromStorage();
-          View.BindElement();
-          View.SetCssState(range);
-        }
+      var Add = function () {
+        var range = Model.GetRangeFromStorage();
+        View.BindElement();
+        View.SetCssState(range);
         Model.SetRangeToStorage("none");
+      }
+
+      var Purge = function(){
+        View.DeleteElement();
       }
 
       if (Model.GetRangeFromStorage() === "none") {
         Browser.ReplaceToNeutralIfExistRange();
       }
 
-      if (Browser.IsUCS() === false) {
-        var Observer = new MutationObserver( function(mutations) {
-            if (Browser.IsUCS() === true) CommonInit();
-        });
-        Observer.observe(document.getElementById("main"), { childList: true }); 
-        return true;
-      }
-      else {
-        CommonInit();
-        return true;
-      }
+      var Observer = new MutationObserver( function(mutations) {
+          if (Browser.IsTextSearch() === true && Browser.IsUCS() === true){
+            Add();  
+          } 
+          else {
+            Purge();
+          }
+      });
+      Observer.observe(document.getElementById("main"), { childList: true });  
     }
 
     Main();
