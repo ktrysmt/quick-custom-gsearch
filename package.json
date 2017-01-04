@@ -5,7 +5,7 @@
   },
   "scripts": {
     "lint": "xo src/script.js",
-    "test": "ava"
+    "test": "xo && ava"
   },
   "xo": {
     "spacce": true
