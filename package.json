@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "ava": "^0.17.0",
+    "xo": "^0.17.1"
+  },
+  "scripts": {
+    "lint": "xo src/script.js",
+    "test": "ava"
+  },
+  "xo": {
+    "spacce": true
+  }
+}
