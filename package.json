@@ -4,8 +4,8 @@
     "xo": "^0.17.1"
   },
   "scripts": {
-    "lint": "xo src/script.js",
-    "test": "xo && ava"
+    "lint": "xo --fix src/script.js",
+    "test": "ava"
   },
   "xo": {
     "spacce": true
