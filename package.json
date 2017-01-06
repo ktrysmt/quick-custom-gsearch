@@ -4,7 +4,7 @@
     "xo": "^0.17.1"
   },
   "scripts": {
-    "lint": "xo --fix src/script.js",
+    "lint": "xo --fix --space src/script.js",
     "test": "ava"
   },
   "xo": {

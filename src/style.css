@@ -1,7 +1,6 @@
 div.quick-custom-gsearch {
   float: left;
   background: #fff;
-  height: 200px;
   position: absolute;
   left: 0;
   right: 0;
@@ -9,7 +8,7 @@ div.quick-custom-gsearch {
   display: block;
   box-shadow: rgb(214, 214, 214) 0px 2px 4px 0px;
   width: 110px;
-  height: 190px;
+  height: auto;
   border: solid 1px #eee;
   margin-left: 10px;
   top: 169px;
