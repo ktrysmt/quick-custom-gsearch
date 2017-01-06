@@ -1,10 +1,10 @@
 (function () {
     const View = {
-      SetCssState: (range) => {
+      SetCssState: function (range) {
         let a = document.querySelector('.quick-custom-gsearch a[data=' + range + ']');
         a.className = 'active';
       },
-      BindElement: () => {
+      BindElement: function () {
         const term    = Model.TERM;
         const div       = document.createElement('div');
         div.className = 'quick-custom-gsearch';
@@ -23,7 +23,7 @@
         const ucs = document.querySelector('div#ucs');
         ucs.insertBefore(div, ucs.firstChild);
       },
-      QuickChange: () => {
+      QuickChange: function () {
         const range = this.getAttribute('data');
         const q = Browser.QueryHashToArray().q;
         Browser.RewriteURI(range, q);
