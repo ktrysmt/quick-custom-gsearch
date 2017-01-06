@@ -13,14 +13,9 @@ You can access the control panel to manage interval quickly, just one click.
 
 Please download and install from [Chrome WebStore](https://chrome.google.com/webstore/detail/quick-custom-gsearch/dcdmfmmmmpjgfaffnaokjpifnihmhaon?utm_source=chrome-app-launcher-info-dialog).
 
-## Notice: Supported language
+## Supported languages
 
-- Japanese Only :disappointed_relieved:
-
-## ToDo 
-
-- [x] Support Japanese (www.google.co.jp)
-- [ ] Support English (www.google.com)
+- Almost languages :smile:
 
 ## Author
 
