@@ -1,9 +1,12 @@
 {
   "devDependencies": {
     "ava": "^0.17.0",
+    "fuse-box": "^1.3.49",
+    "uglify-js": "^2.7.5",
     "xo": "^0.17.1"
   },
   "scripts": {
+    "start": "node fusebox.js",
     "lint": "xo --fix --space src/script.js",
     "test": "ava"
   },

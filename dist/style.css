@@ -1,0 +1,34 @@
+div.quick-custom-gsearch {
+  float: left;
+  background: #fff;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 999999;
+  display: block;
+  box-shadow: rgb(214, 214, 214) 0px 2px 4px 0px;
+  width: 110px;
+  height: auto;
+  border: solid 1px #eee;
+  margin-left: 10px;
+  top: 169px;
+}
+
+div.quick-custom-gsearch a {
+  background-color: white;
+  color: #777;
+  display: block;
+  padding: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+div.quick-custom-gsearch a.active,
+div.quick-custom-gsearch a:hover {
+  background-color: #f1f1f1;
+  color: #222;
+}
+div.quick-custom-gsearch span {
+  height: 5px;
+  display: block;
+  width: 100%;
+}
