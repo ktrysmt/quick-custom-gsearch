@@ -1,0 +1,17 @@
+const jsdom = require('jsdom').jsdom;
+
+const html = `<html><head></head><body>
+<div id='ucs'><div id='main'></div></div>
+</body></html>`;
+
+global.document = jsdom(html);
+global.window = document.defaultView;
+Object.keys(document.defaultView).forEach((property) => {
+  if (typeof global[property] === 'undefined') {
+    global[property] = document.defaultView[property];
+  }
+});
+
+global.navigator = {
+  userAgent: 'node.js'
+};
