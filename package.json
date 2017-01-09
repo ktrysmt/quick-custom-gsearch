@@ -11,6 +11,7 @@
   "scripts": {
     "start": "webpack --colors",
     "lint": "eslint --color --fix src/*.js",
+    "test": "mocha --colors --require test/setup.js test/*.spec.js",
     "build:dev": "webpack --colors -d",
     "build:prod": "webpack --colors"
   }
