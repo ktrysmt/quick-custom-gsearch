@@ -3,7 +3,7 @@ const Parser = {
     const ucs = document.querySelector('div#ucs');
     return ucs !== null;
   },
-  GetRangeByQueryString() {
+  GetRangeByQueryString(Model) {
     const o = Parser.QueryHashToArray();
     if (typeof o.tbs === 'undefined' || o.tbs === '') {
       return 'none';
@@ -36,13 +36,16 @@ const Parser = {
     }
     return o;
   },
-  RewriteURI(range, q) {
+  RewriteURI(range, q, Model) {
     const pre_path = `/search?hl=ja&site=webhp&biw=810&bih=1306&q=${q}&oq=${q}&ie=UTF-8&`;
+    let result_path = "";
     if (Model.VALUE_PATTERN.test(range)) {
-      window.location.href = `${pre_path}tbs=qdr:${range}&tbm=`;
+      result_path = `${pre_path}tbs=qdr:${range}&tbm=`;
     } else {
-      window.location.href = `${pre_path}tbm=`;
+      result_path = `${pre_path}tbm=`;
     }
+    window.location.href = result_path;
+    return result_path;
   },
 };
 
