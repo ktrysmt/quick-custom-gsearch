@@ -6,7 +6,8 @@
     "eslint-plugin-import": "^2.2.0",
     "jsdom": "^9.9.1",
     "mocha": "^3.2.0",
-    "webpack": "^1.14.0"
+    "uglify-js": "git://github.com/mishoo/UglifyJS2#harmony",
+    "webpack": "beta"
   },
   "scripts": {
     "start": "webpack --colors",

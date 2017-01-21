@@ -1,12 +1,17 @@
+const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  entry: [
-    './src/main.js',
-  ],
+  entry: {
+    script: './src/main.js',
+  },
   output: {
     path: path.resolve('dist/'),
-    filename: 'script.js',
+    filename: '[name].js',
   },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
+  ],
 };
 

@@ -1,6 +1,9 @@
 {
   "extends": "airbnb-base",
-  "env": [
-    "browser"
-  ]
+  "env": { "browser": true },
+  "rules": {
+    "no-restricted-syntax": "off",
+    "no-plusplus": "off",
+    "no-unused-expressions": "off",
+  }
 }

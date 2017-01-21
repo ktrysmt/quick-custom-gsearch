@@ -1,9 +1,12 @@
+const Model = require('./model.js');
+const Parser = require('./parser.js');
+
 const View = {
   SetCssState(range) {
     const a = document.querySelector(`.quick-custom-gsearch a[data=${range}]`);
     a.className = 'active';
   },
-  BindElement(Model) {
+  BindElement() {
     const term = Model.TERM;
     const div = document.createElement('div');
     div.className = 'quick-custom-gsearch';
@@ -22,7 +25,7 @@ const View = {
     const ucs = document.querySelector('div#ucs');
     ucs.insertBefore(div, ucs.firstChild);
   },
-  QuickChange(Parser) {
+  QuickChange() {
     const range = this.getAttribute('data');
     const q = Parser.QueryHashToArray().q;
     Parser.RewriteURI(range, q);
