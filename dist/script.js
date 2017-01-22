@@ -1,1 +1,221 @@
-!function(n){function e(c){if(t[c])return t[c].exports;var I=t[c]={i:c,l:!1,exports:{}};return n[c].call(I.exports,I,I.exports,e),I.l=!0,I.exports}var t={};return e.m=n,e.c=t,e.i=function(n){return n},e.d=function(n,t,c){e.o(n,t)||Object.defineProperty(n,t,{configurable:!1,enumerable:!0,get:c})},e.n=function(n){var t=n&&n.__esModule?function(){return n.default}:function(){return n};return e.d(t,"a",t),t},e.o=function(n,e){return Object.prototype.hasOwnProperty.call(n,e)},e.p="",e(e.s=3)}([function(module,exports){eval("const Model = {\n  VALUE_PATTERN: /^(m3|m6|y2|y3|y)$/,\n  ARG_PATTERN: /^qdr:(m3|m6|y|y2|y3)$/,\n  TERM: {\n    0: { data: 'none', text: 'Normal' },\n    1: { data: 'm3', text: '3 Month' },\n    2: { data: 'm6', text: '6 Month' },\n    3: { data: 'y', text: '1 Year' },\n    4: { data: 'y2', text: '2 Year' },\n    5: { data: 'y3', text: '3 Year' },\n  },\n};\n\nmodule.exports = Model;\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMC5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3NyYy9tb2RlbC5qcz85NGVjIl0sInNvdXJjZXNDb250ZW50IjpbImNvbnN0IE1vZGVsID0ge1xuICBWQUxVRV9QQVRURVJOOiAvXihtM3xtNnx5Mnx5M3x5KSQvLFxuICBBUkdfUEFUVEVSTjogL15xZHI6KG0zfG02fHl8eTJ8eTMpJC8sXG4gIFRFUk06IHtcbiAgICAwOiB7IGRhdGE6ICdub25lJywgdGV4dDogJ05vcm1hbCcgfSxcbiAgICAxOiB7IGRhdGE6ICdtMycsIHRleHQ6ICczIE1vbnRoJyB9LFxuICAgIDI6IHsgZGF0YTogJ202JywgdGV4dDogJzYgTW9udGgnIH0sXG4gICAgMzogeyBkYXRhOiAneScsIHRleHQ6ICcxIFllYXInIH0sXG4gICAgNDogeyBkYXRhOiAneTInLCB0ZXh0OiAnMiBZZWFyJyB9LFxuICAgIDU6IHsgZGF0YTogJ3kzJywgdGV4dDogJzMgWWVhcicgfSxcbiAgfSxcbn07XG5cbm1vZHVsZS5leHBvcnRzID0gTW9kZWw7XG5cblxuXG4vLy8vLy8vLy8vLy8vLy8vLy9cbi8vIFdFQlBBQ0sgRk9PVEVSXG4vLyAuL3NyYy9tb2RlbC5qc1xuLy8gbW9kdWxlIGlkID0gMFxuLy8gbW9kdWxlIGNodW5rcyA9IDAiXSwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7Iiwic291cmNlUm9vdCI6IiJ9")},function(module,exports,__webpack_require__){eval("const Model = __webpack_require__(/*! ./model.js */ 0);\n\nconst Parser = {\n  IsUCS() {\n    const ucs = document.querySelector('div#ucs');\n    return ucs !== null;\n  },\n  GetRangeByQueryString() {\n    const o = Parser.QueryHashToArray();\n    if (typeof o.tbs === 'undefined' || o.tbs === '') {\n      return 'none';\n    }\n    if (Model.ARG_PATTERN.test(o.tbs)) {\n      return RegExp.$1;\n    }\n    return 'none';\n  },\n  IsTextSearch() {\n    const o = Parser.QueryHashToArray();\n    if (typeof o.tbm === 'undefined' || o.tbm === '') {\n      return true;\n    }\n    return false;\n  },\n  QueryHashToArray() {\n    const o = {};\n    if (window.location.pathname !== '/' && !/^\\/(search|webhp)$/.test(window.location.pathname)) {\n      return o;\n    }\n    const q = (/&/.test(window.location.search)) ? window.location.search.slice(1).split('&') : [];\n    const h = (/#/.test(window.location.hash)) ? window.location.hash.slice(1).split('&') : [];\n\n    if (h.length > 0) {\n      for (let i = 0; i < h.length; ++i) {\n        const a = h[i].split('=');\n        o[a[0]] = a[1];\n      }\n      return o;\n    }\n    for (let i = 0; i < q.length; ++i) {\n      const a = q[i].split('=');\n      o[a[0]] = a[1];\n    }\n    return o;\n  },\n  RewriteURI(range, q) {\n    const prePath = `/search?hl=ja&site=webhp&biw=810&bih=1306&q=${q}&oq=${q}&ie=UTF-8&`;\n    let resultPath = '';\n    if (Model.VALUE_PATTERN.test(range)) {\n      resultPath = `${prePath}tbs=qdr:${range}&tbm=`;\n    } else {\n      resultPath = `${prePath}tbm=`;\n    }\n    window.location.href = resultPath;\n    return resultPath;\n  },\n};\n\nmodule.exports = Parser;\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMS5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3NyYy9wYXJzZXIuanM/MjYxNyJdLCJzb3VyY2VzQ29udGVudCI6WyJjb25zdCBNb2RlbCA9IHJlcXVpcmUoJy4vbW9kZWwuanMnKTtcblxuY29uc3QgUGFyc2VyID0ge1xuICBJc1VDUygpIHtcbiAgICBjb25zdCB1Y3MgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCdkaXYjdWNzJyk7XG4gICAgcmV0dXJuIHVjcyAhPT0gbnVsbDtcbiAgfSxcbiAgR2V0UmFuZ2VCeVF1ZXJ5U3RyaW5nKCkge1xuICAgIGNvbnN0IG8gPSBQYXJzZXIuUXVlcnlIYXNoVG9BcnJheSgpO1xuICAgIGlmICh0eXBlb2Ygby50YnMgPT09ICd1bmRlZmluZWQnIHx8IG8udGJzID09PSAnJykge1xuICAgICAgcmV0dXJuICdub25lJztcbiAgICB9XG4gICAgaWYgKE1vZGVsLkFSR19QQVRURVJOLnRlc3Qoby50YnMpKSB7XG4gICAgICByZXR1cm4gUmVnRXhwLiQxO1xuICAgIH1cbiAgICByZXR1cm4gJ25vbmUnO1xuICB9LFxuICBJc1RleHRTZWFyY2goKSB7XG4gICAgY29uc3QgbyA9IFBhcnNlci5RdWVyeUhhc2hUb0FycmF5KCk7XG4gICAgaWYgKHR5cGVvZiBvLnRibSA9PT0gJ3VuZGVmaW5lZCcgfHwgby50Ym0gPT09ICcnKSB7XG4gICAgICByZXR1cm4gdHJ1ZTtcbiAgICB9XG4gICAgcmV0dXJuIGZhbHNlO1xuICB9LFxuICBRdWVyeUhhc2hUb0FycmF5KCkge1xuICAgIGNvbnN0IG8gPSB7fTtcbiAgICBpZiAod2luZG93LmxvY2F0aW9uLnBhdGhuYW1lICE9PSAnLycgJiYgIS9eXFwvKHNlYXJjaHx3ZWJocCkkLy50ZXN0KHdpbmRvdy5sb2NhdGlvbi5wYXRobmFtZSkpIHtcbiAgICAgIHJldHVybiBvO1xuICAgIH1cbiAgICBjb25zdCBxID0gKC8mLy50ZXN0KHdpbmRvdy5sb2NhdGlvbi5zZWFyY2gpKSA/IHdpbmRvdy5sb2NhdGlvbi5zZWFyY2guc2xpY2UoMSkuc3BsaXQoJyYnKSA6IFtdO1xuICAgIGNvbnN0IGggPSAoLyMvLnRlc3Qod2luZG93LmxvY2F0aW9uLmhhc2gpKSA/IHdpbmRvdy5sb2NhdGlvbi5oYXNoLnNsaWNlKDEpLnNwbGl0KCcmJykgOiBbXTtcblxuICAgIGlmIChoLmxlbmd0aCA+IDApIHtcbiAgICAgIGZvciAobGV0IGkgPSAwOyBpIDwgaC5sZW5ndGg7ICsraSkge1xuICAgICAgICBjb25zdCBhID0gaFtpXS5zcGxpdCgnPScpO1xuICAgICAgICBvW2FbMF1dID0gYVsxXTtcbiAgICAgIH1cbiAgICAgIHJldHVybiBvO1xuICAgIH1cbiAgICBmb3IgKGxldCBpID0gMDsgaSA8IHEubGVuZ3RoOyArK2kpIHtcbiAgICAgIGNvbnN0IGEgPSBxW2ldLnNwbGl0KCc9Jyk7XG4gICAgICBvW2FbMF1dID0gYVsxXTtcbiAgICB9XG4gICAgcmV0dXJuIG87XG4gIH0sXG4gIFJld3JpdGVVUkkocmFuZ2UsIHEpIHtcbiAgICBjb25zdCBwcmVQYXRoID0gYC9zZWFyY2g/aGw9amEmc2l0ZT13ZWJocCZiaXc9ODEwJmJpaD0xMzA2JnE9JHtxfSZvcT0ke3F9JmllPVVURi04JmA7XG4gICAgbGV0IHJlc3VsdFBhdGggPSAnJztcbiAgICBpZiAoTW9kZWwuVkFMVUVfUEFUVEVSTi50ZXN0KHJhbmdlKSkge1xuICAgICAgcmVzdWx0UGF0aCA9IGAke3ByZVBhdGh9dGJzPXFkcjoke3JhbmdlfSZ0Ym09YDtcbiAgICB9IGVsc2Uge1xuICAgICAgcmVzdWx0UGF0aCA9IGAke3ByZVBhdGh9dGJtPWA7XG4gICAgfVxuICAgIHdpbmRvdy5sb2NhdGlvbi5ocmVmID0gcmVzdWx0UGF0aDtcbiAgICByZXR1cm4gcmVzdWx0UGF0aDtcbiAgfSxcbn07XG5cbm1vZHVsZS5leHBvcnRzID0gUGFyc2VyO1xuXG5cblxuLy8vLy8vLy8vLy8vLy8vLy8vXG4vLyBXRUJQQUNLIEZPT1RFUlxuLy8gLi9zcmMvcGFyc2VyLmpzXG4vLyBtb2R1bGUgaWQgPSAxXG4vLyBtb2R1bGUgY2h1bmtzID0gMCJdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTsiLCJzb3VyY2VSb290IjoiIn0=")},function(module,exports,__webpack_require__){eval("const Model = __webpack_require__(/*! ./model.js */ 0);\nconst Parser = __webpack_require__(/*! ./parser.js */ 1);\n\nconst View = {\n  SetCssState(range) {\n    const a = document.querySelector(`.quick-custom-gsearch a[data=${range}]`);\n    a.className = 'active';\n  },\n  BindElement() {\n    const term = Model.TERM;\n    const div = document.createElement('div');\n    div.className = 'quick-custom-gsearch';\n    const span = document.createElement('span');\n\n    div.appendChild(span);\n    for (const i of Array(6).keys()) {\n      const elm = document.createElement('a');\n      elm.setAttribute('data', term[i].data);\n      elm.appendChild(document.createTextNode(term[i].text));\n      elm.addEventListener('click', View.QuickChange, false);\n      div.appendChild(elm);\n    }\n    div.appendChild(span.cloneNode());\n\n    const ucs = document.querySelector('div#ucs');\n    ucs.insertBefore(div, ucs.firstChild);\n  },\n  QuickChange() {\n    const range = this.getAttribute('data');\n    const q = Parser.QueryHashToArray().q;\n    Parser.RewriteURI(range, q);\n  },\n};\n\nmodule.exports = View;\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMi5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3NyYy92aWV3LmpzPzMyMGEiXSwic291cmNlc0NvbnRlbnQiOlsiY29uc3QgTW9kZWwgPSByZXF1aXJlKCcuL21vZGVsLmpzJyk7XG5jb25zdCBQYXJzZXIgPSByZXF1aXJlKCcuL3BhcnNlci5qcycpO1xuXG5jb25zdCBWaWV3ID0ge1xuICBTZXRDc3NTdGF0ZShyYW5nZSkge1xuICAgIGNvbnN0IGEgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGAucXVpY2stY3VzdG9tLWdzZWFyY2ggYVtkYXRhPSR7cmFuZ2V9XWApO1xuICAgIGEuY2xhc3NOYW1lID0gJ2FjdGl2ZSc7XG4gIH0sXG4gIEJpbmRFbGVtZW50KCkge1xuICAgIGNvbnN0IHRlcm0gPSBNb2RlbC5URVJNO1xuICAgIGNvbnN0IGRpdiA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuICAgIGRpdi5jbGFzc05hbWUgPSAncXVpY2stY3VzdG9tLWdzZWFyY2gnO1xuICAgIGNvbnN0IHNwYW4gPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdzcGFuJyk7XG5cbiAgICBkaXYuYXBwZW5kQ2hpbGQoc3Bhbik7XG4gICAgZm9yIChjb25zdCBpIG9mIEFycmF5KDYpLmtleXMoKSkge1xuICAgICAgY29uc3QgZWxtID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnYScpO1xuICAgICAgZWxtLnNldEF0dHJpYnV0ZSgnZGF0YScsIHRlcm1baV0uZGF0YSk7XG4gICAgICBlbG0uYXBwZW5kQ2hpbGQoZG9jdW1lbnQuY3JlYXRlVGV4dE5vZGUodGVybVtpXS50ZXh0KSk7XG4gICAgICBlbG0uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBWaWV3LlF1aWNrQ2hhbmdlLCBmYWxzZSk7XG4gICAgICBkaXYuYXBwZW5kQ2hpbGQoZWxtKTtcbiAgICB9XG4gICAgZGl2LmFwcGVuZENoaWxkKHNwYW4uY2xvbmVOb2RlKCkpO1xuXG4gICAgY29uc3QgdWNzID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcignZGl2I3VjcycpO1xuICAgIHVjcy5pbnNlcnRCZWZvcmUoZGl2LCB1Y3MuZmlyc3RDaGlsZCk7XG4gIH0sXG4gIFF1aWNrQ2hhbmdlKCkge1xuICAgIGNvbnN0IHJhbmdlID0gdGhpcy5nZXRBdHRyaWJ1dGUoJ2RhdGEnKTtcbiAgICBjb25zdCBxID0gUGFyc2VyLlF1ZXJ5SGFzaFRvQXJyYXkoKS5xO1xuICAgIFBhcnNlci5SZXdyaXRlVVJJKHJhbmdlLCBxKTtcbiAgfSxcbn07XG5cbm1vZHVsZS5leHBvcnRzID0gVmlldztcblxuXG5cbi8vLy8vLy8vLy8vLy8vLy8vL1xuLy8gV0VCUEFDSyBGT09URVJcbi8vIC4vc3JjL3ZpZXcuanNcbi8vIG1vZHVsZSBpZCA9IDJcbi8vIG1vZHVsZSBjaHVua3MgPSAwIl0sIm1hcHBpbmdzIjoiQUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOyIsInNvdXJjZVJvb3QiOiIifQ==")},function(module,exports,__webpack_require__){eval("const Parser = __webpack_require__(/*! ./parser.js */ 1);\nconst View = __webpack_require__(/*! ./view.js */ 2);\nconst Model = __webpack_require__(/*! ./model.js */ 0);\n\nconst Main = () => {\n  const Add = () => {\n    if (Parser.IsTextSearch() === true && Parser.IsUCS() === true) {\n      View.BindElement(Model);\n      const range = Parser.GetRangeByQueryString(Model);\n      View.SetCssState(range);\n    }\n  };\n\n  const Observer = new MutationObserver(() => {\n    Add();\n  });\n\n  const elm = document.getElementById('main');\n  if (elm !== null) {\n    Add();\n    const own = document.querySelector('.quick-custom-gsearch');\n    if (own === null) {\n      Observer.observe(elm, { childList: true });\n    }\n  }\n};\n\nMain();\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMy5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3NyYy9tYWluLmpzPzM0NzkiXSwic291cmNlc0NvbnRlbnQiOlsiY29uc3QgUGFyc2VyID0gcmVxdWlyZSgnLi9wYXJzZXIuanMnKTtcbmNvbnN0IFZpZXcgPSByZXF1aXJlKCcuL3ZpZXcuanMnKTtcbmNvbnN0IE1vZGVsID0gcmVxdWlyZSgnLi9tb2RlbC5qcycpO1xuXG5jb25zdCBNYWluID0gKCkgPT4ge1xuICBjb25zdCBBZGQgPSAoKSA9PiB7XG4gICAgaWYgKFBhcnNlci5Jc1RleHRTZWFyY2goKSA9PT0gdHJ1ZSAmJiBQYXJzZXIuSXNVQ1MoKSA9PT0gdHJ1ZSkge1xuICAgICAgVmlldy5CaW5kRWxlbWVudChNb2RlbCk7XG4gICAgICBjb25zdCByYW5nZSA9IFBhcnNlci5HZXRSYW5nZUJ5UXVlcnlTdHJpbmcoTW9kZWwpO1xuICAgICAgVmlldy5TZXRDc3NTdGF0ZShyYW5nZSk7XG4gICAgfVxuICB9O1xuXG4gIGNvbnN0IE9ic2VydmVyID0gbmV3IE11dGF0aW9uT2JzZXJ2ZXIoKCkgPT4ge1xuICAgIEFkZCgpO1xuICB9KTtcblxuICBjb25zdCBlbG0gPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnbWFpbicpO1xuICBpZiAoZWxtICE9PSBudWxsKSB7XG4gICAgQWRkKCk7XG4gICAgY29uc3Qgb3duID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcignLnF1aWNrLWN1c3RvbS1nc2VhcmNoJyk7XG4gICAgaWYgKG93biA9PT0gbnVsbCkge1xuICAgICAgT2JzZXJ2ZXIub2JzZXJ2ZShlbG0sIHsgY2hpbGRMaXN0OiB0cnVlIH0pO1xuICAgIH1cbiAgfVxufTtcblxuTWFpbigpO1xuXG5cblxuLy8vLy8vLy8vLy8vLy8vLy8vXG4vLyBXRUJQQUNLIEZPT1RFUlxuLy8gLi9zcmMvbWFpbi5qc1xuLy8gbW9kdWxlIGlkID0gM1xuLy8gbW9kdWxlIGNodW5rcyA9IDAiXSwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOyIsInNvdXJjZVJvb3QiOiIifQ==")}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/*!*********************!*\
+  !*** ./src/main.js ***!
+  \*********************/
+/***/ function(module, exports, __webpack_require__) {
+
+	const Parser = __webpack_require__(/*! ./parser.js */ 2);
+	const View = __webpack_require__(/*! ./view.js */ 3);
+	const Model = __webpack_require__(/*! ./model.js */ 1);
+	
+	const Main = () => {
+	  const Add = () => {
+	    const own = document.querySelector('.quick-custom-gsearch');
+	    if (own !== null) {
+	      return false;
+	    }
+	
+	    if (Parser.IsTextSearch() === true && Parser.IsUCS() === true) {
+	      View.BindElement(Model);
+	      const range = Parser.GetRangeByQueryString(Model);
+	      View.SetCssState(range);
+	      return true;
+	    }
+	    return false;
+	  };
+	
+	  const Observer = new MutationObserver(() => {
+	    Add();
+	  });
+	
+	  const elm = document.getElementById('main');
+	  if (elm !== null) {
+	    Add();
+	    Observer.observe(elm, { childList: true });
+	  }
+	};
+	
+	Main();
+
+
+/***/ },
+/* 1 */
+/*!**********************!*\
+  !*** ./src/model.js ***!
+  \**********************/
+/***/ function(module, exports) {
+
+	const Model = {
+	  VALUE_PATTERN: /^(m3|m6|y2|y3|y)$/,
+	  ARG_PATTERN: /^qdr:(m3|m6|y|y2|y3)$/,
+	  TERM: {
+	    0: { data: 'none', text: 'Normal' },
+	    1: { data: 'm3', text: '3 Month' },
+	    2: { data: 'm6', text: '6 Month' },
+	    3: { data: 'y', text: '1 Year' },
+	    4: { data: 'y2', text: '2 Year' },
+	    5: { data: 'y3', text: '3 Year' },
+	  },
+	};
+	
+	module.exports = Model;
+
+
+/***/ },
+/* 2 */
+/*!***********************!*\
+  !*** ./src/parser.js ***!
+  \***********************/
+/***/ function(module, exports, __webpack_require__) {
+
+	const Model = __webpack_require__(/*! ./model.js */ 1);
+	
+	const Parser = {
+	  IsUCS() {
+	    const ucs = document.querySelector('div#ucs');
+	    return ucs !== null;
+	  },
+	  GetRangeByQueryString() {
+	    const o = Parser.QueryHashToArray();
+	    if (typeof o.tbs === 'undefined' || o.tbs === '') {
+	      return 'none';
+	    }
+	    if (Model.ARG_PATTERN.test(o.tbs)) {
+	      return RegExp.$1;
+	    }
+	    return 'none';
+	  },
+	  IsTextSearch() {
+	    const o = Parser.QueryHashToArray();
+	    if (typeof o.tbm === 'undefined' || o.tbm === '') {
+	      return true;
+	    }
+	    return false;
+	  },
+	  QueryHashToArray() {
+	    const o = {};
+	    if (window.location.pathname !== '/' && !/^\/(search|webhp)$/.test(window.location.pathname)) {
+	      return o;
+	    }
+	    const q = (/&/.test(window.location.search)) ? window.location.search.slice(1).split('&') : [];
+	    const h = (/#/.test(window.location.hash)) ? window.location.hash.slice(1).split('&') : [];
+	
+	    if (h.length > 0) {
+	      for (let i = 0; i < h.length; ++i) {
+	        const a = h[i].split('=');
+	        o[a[0]] = a[1];
+	      }
+	      return o;
+	    }
+	    for (let i = 0; i < q.length; ++i) {
+	      const a = q[i].split('=');
+	      o[a[0]] = a[1];
+	    }
+	    return o;
+	  },
+	  RewriteURI(range, q) {
+	    const prePath = `/search?hl=ja&site=webhp&biw=810&bih=1306&q=${q}&oq=${q}&ie=UTF-8&`;
+	    let resultPath = '';
+	    if (Model.VALUE_PATTERN.test(range)) {
+	      resultPath = `${prePath}tbs=qdr:${range}&tbm=`;
+	    } else {
+	      resultPath = `${prePath}tbm=`;
+	    }
+	    window.location.href = resultPath;
+	    return resultPath;
+	  },
+	};
+	
+	module.exports = Parser;
+
+
+/***/ },
+/* 3 */
+/*!*********************!*\
+  !*** ./src/view.js ***!
+  \*********************/
+/***/ function(module, exports, __webpack_require__) {
+
+	const Model = __webpack_require__(/*! ./model.js */ 1);
+	const Parser = __webpack_require__(/*! ./parser.js */ 2);
+	
+	const View = {
+	  SetCssState(range) {
+	    const a = document.querySelector(`.quick-custom-gsearch a[data=${range}]`);
+	    a.className = 'active';
+	  },
+	  BindElement() {
+	    const term = Model.TERM;
+	    const div = document.createElement('div');
+	    div.className = 'quick-custom-gsearch';
+	    const span = document.createElement('span');
+	
+	    div.appendChild(span);
+	    for (const i of Array(6).keys()) {
+	      const elm = document.createElement('a');
+	      elm.setAttribute('data', term[i].data);
+	      elm.appendChild(document.createTextNode(term[i].text));
+	      elm.addEventListener('click', View.QuickChange, false);
+	      div.appendChild(elm);
+	    }
+	    div.appendChild(span.cloneNode());
+	
+	    const ucs = document.querySelector('div#ucs');
+	    ucs.insertBefore(div, ucs.firstChild);
+	  },
+	  QuickChange() {
+	    const range = this.getAttribute('data');
+	    const q = Parser.QueryHashToArray().q;
+	    Parser.RewriteURI(range, q);
+	  },
+	};
+	
+	module.exports = View;
+
+
+/***/ }
+/******/ ]);
+//# sourceMappingURL=script.js.map

@@ -1,4 +1,3 @@
 .DS_Store
 .fusebox
-dist/script.js.map
 node_modules

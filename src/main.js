@@ -4,11 +4,18 @@ const Model = require('./model.js');
 
 const Main = () => {
   const Add = () => {
+    const own = document.querySelector('.quick-custom-gsearch');
+    if (own !== null) {
+      return false;
+    }
+
     if (Parser.IsTextSearch() === true && Parser.IsUCS() === true) {
       View.BindElement(Model);
       const range = Parser.GetRangeByQueryString(Model);
       View.SetCssState(range);
+      return true;
     }
+    return false;
   };
 
   const Observer = new MutationObserver(() => {
@@ -18,10 +25,7 @@ const Main = () => {
   const elm = document.getElementById('main');
   if (elm !== null) {
     Add();
-    const own = document.querySelector('.quick-custom-gsearch');
-    if (own === null) {
-      Observer.observe(elm, { childList: true });
-    }
+    Observer.observe(elm, { childList: true });
   }
 };
 
