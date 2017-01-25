@@ -1,9 +1,6 @@
 # Quick Custom GSearch
 
-## What's this
-
-This is a Chrome Extention.
-You can access the control panel to manage interval quickly, just one click.
+> You can access the control panel to manage interval quickly, just one click.
 
 ## Screenshot
 
@@ -22,9 +19,9 @@ Please download and install from [Chrome WebStore](https://chrome.google.com/web
 
 ### v0.6.1
 
-- fullfill testspecs.
-- bind `this` to addEventListeners for testability.
-- recompress the main script.
+- Fullfill testspecs.
+- Bind `this` to addEventListeners for testability.
+- Recompress the main script.
 
 ### v0.6
 - Refactoring the monolisic code.

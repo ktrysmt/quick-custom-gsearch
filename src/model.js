@@ -9,6 +9,10 @@ const Model = {
     4: { data: 'y2', text: '2 Year' },
     5: { data: 'y3', text: '3 Year' },
   },
+  SWITCH_LANGUAGES = { // lr=, lr=lang_en, lr=lang_local
+    "lang_en": "in English",
+    "lang_local": "in Local",
+  },
 };
 
 module.exports = Model;
