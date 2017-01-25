@@ -3,7 +3,6 @@ const jsdom = require('jsdom').jsdom;
 const html = `<html><head></head><body>
 <div id='ucs'><div id='main'></div></div>
 </body></html>`;
-  // const html = "";
 
 global.document = jsdom(html, {
   url: 'https://www.google.co.jp/search?hl=ja&site=webhp&biw=810&bih=1306&q=duckduckgo&oq=duckduckgo&ie=UTF-8&tbs=qdr:y&tbm=',

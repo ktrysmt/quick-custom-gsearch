@@ -24,10 +24,14 @@ describe('View >', () => {
   it('BindElement', () => {
     const dom = View.CreateElement();
     View.BindElement(dom);
+    const target = document.querySelector('div#ucs > .quick-custom-gsearch');
+    expect(target.nodeName).to.equal('DIV');
   });
 
   it('SetCssState', () => {
     View.SetCssState(range);
+    const target = document.querySelector(`.quick-custom-gsearch a[data=${range}]`);
+    expect(target.className).to.equal('active');
   });
 
   it('QuickChange', () => {
