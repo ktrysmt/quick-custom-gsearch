@@ -20,6 +20,12 @@ Please download and install from [Chrome WebStore](https://chrome.google.com/web
 
 ## Change Log
 
+### v0.6.1
+
+- fullfill testspecs.
+- bind `this` to addEventListeners for testability.
+- recompress the main script.
+
 ### v0.6
 - Refactoring the monolisic code.
 - Add test codes.

@@ -6,7 +6,7 @@ const View = {
     const a = document.querySelector(`.quick-custom-gsearch a[data=${range}]`);
     a.className = 'active';
   },
-  BindElement() {
+  CreateElement() {
     const term = Model.TERM;
     const div = document.createElement('div');
     div.className = 'quick-custom-gsearch';
@@ -17,18 +17,20 @@ const View = {
       const elm = document.createElement('a');
       elm.setAttribute('data', term[i].data);
       elm.appendChild(document.createTextNode(term[i].text));
-      elm.addEventListener('click', View.QuickChange, false);
+      elm.addEventListener('click', View.QuickChange.bind(elm), false);
       div.appendChild(elm);
     }
     div.appendChild(span.cloneNode());
-
+    return div;
+  },
+  BindElement(div) {
     const ucs = document.querySelector('div#ucs');
     ucs.insertBefore(div, ucs.firstChild);
   },
   QuickChange() {
     const range = this.getAttribute('data');
     const q = Parser.QueryHashToArray().q;
-    Parser.RewriteURI(range, q);
+    return Parser.RewriteURI(range, q);
   },
 };
 

@@ -10,7 +10,8 @@ const Main = () => {
     }
 
     if (Parser.IsTextSearch() === true && Parser.IsUCS() === true) {
-      View.BindElement(Model);
+      const div = View.CreateElement();
+      View.BindElement(div);
       const range = Parser.GetRangeByQueryString(Model);
       View.SetCssState(range);
       return true;
