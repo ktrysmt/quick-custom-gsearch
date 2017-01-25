@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Quick Custom GSearch",
-  "version": "0.5",
+  "version": "0.6",
   "description": "Quick access for custom search functions",
   "page_action": {
     "default_icon": "19.png"
@@ -14,6 +14,7 @@
   "content_scripts": [
     {
       "matches": [
+        "*://encrypted.google.com/*",
         "*://www.google.com/*",    
         "*://www.google.ad/*",     
         "*://www.google.ae/*",     
