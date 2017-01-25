@@ -18,7 +18,7 @@ Please download and install from [Chrome WebStore](https://chrome.google.com/web
 ### v0.7
 - Add a switching languages interface for search result.
 
-## Release notes
+## Change Log
 
 ### v0.6
 - Refactoring the monolisic code.
