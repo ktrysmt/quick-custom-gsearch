@@ -6,10 +6,8 @@ div.quick-custom-gsearch {
   right: 0;
   z-index: 999999;
   display: block;
-  box-shadow: rgb(214, 214, 214) 0px 2px 4px 0px;
   width: 110px;
   height: auto;
-  border: solid 1px #eee;
   margin-left: 10px;
   top: 169px;
 }
@@ -31,4 +29,13 @@ div.quick-custom-gsearch span {
   height: 5px;
   display: block;
   width: 100%;
+}
+
+div.quick-custom-gsearch .term {
+  box-shadow: rgb(214, 214, 214) 0px 1px 5px 0px;
+}
+
+div.quick-custom-gsearch .language {
+  box-shadow: rgb(214, 214, 214) 0px 1px 5px 0px;
+  margin-top: 5px;
 }

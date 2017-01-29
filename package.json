@@ -11,8 +11,8 @@
   },
   "scripts": {
     "start": "webpack -d -w",
-    "lint": "eslint --fix src/*.js",
-    "test": "mocha --require test/setup.js test/*.spec.js",
+    "lint": "eslint --fix src/**/*.js",
+    "test": "mocha --require test/setup.js test/**/*.spec.js",
     "build:dev": "webpack -d",
     "build:prod": "webpack"
   }
