@@ -4,7 +4,7 @@
 
 ## Screenshot
 
-![Screenshot](./capture.png)
+![Screenshot1](./capture.png)
 
 ## Installation
 
