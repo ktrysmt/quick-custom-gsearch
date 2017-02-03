@@ -10,7 +10,7 @@
     "webpack": "beta"
   },
   "scripts": {
-    "start": "webpack -d -w",
+    "start": "yarn build:dev -- -w",
     "lint": "eslint --fix src/**/*.js",
     "test": "mocha --require test/setup.js test/**/*.spec.js",
     "build:dev": "webpack -d",

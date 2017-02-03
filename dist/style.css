@@ -39,3 +39,13 @@ div.quick-custom-gsearch .language {
   box-shadow: rgb(214, 214, 214) 0px 1px 5px 0px;
   margin-top: 5px;
 }
+
+div.quick-custom-gsearch .term span.head, 
+div.quick-custom-gsearch .language span.head { 
+  height: 1.7em;
+  display: block;
+  padding: 8px 0 0 6px;
+  color: #aaa;
+  font-weight: bold;
+  font-size: smaller;
+}

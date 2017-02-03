@@ -32,8 +32,14 @@ const Parser = {
     return o;
   },
   BuildParameterByQueryObject(opts) {
-  
-  }
+    const array = Object.keys(opts).map(key => `${key}=${opts[key]}`);
+    return array.join('&');
+  },
+  RewriteURI(parameter) {
+    const path = `/search?${parameter}`;
+    window.location.href = path;
+    return path;
+  },
 };
 
 module.exports = Parser;

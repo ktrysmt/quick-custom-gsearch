@@ -1,6 +1,6 @@
 const Model = require('../model.js');
 const Parser = require('../parser.js');
-const Cotroller = require('./controller.js');
+const Controller = require('./controller.js');
 
 const TermView = {
   SetCssState(range) {
@@ -11,9 +11,12 @@ const TermView = {
     const term = Model.TERM;
     const div = document.createElement('div');
     div.className = 'term';
-    const span = document.createElement('span');
+    const spanHead = document.createElement('span');
+    const spanTail = spanHead.cloneNode();
+    spanHead.innerText = 'Term';
+    spanHead.className = 'head';
 
-    div.appendChild(span);
+    div.appendChild(spanHead);
     Object.keys(term).forEach((i) => {
       const elm = document.createElement('a');
       elm.setAttribute('data', term[i].data);
@@ -21,7 +24,7 @@ const TermView = {
       elm.addEventListener('click', TermView.QuickChange.bind(elm), false);
       div.appendChild(elm);
     });
-    div.appendChild(span.cloneNode());
+    div.appendChild(spanTail);
     return div;
   },
   BindElement(div) {
@@ -30,8 +33,11 @@ const TermView = {
   },
   QuickChange() {
     const range = this.getAttribute('data');
-    const q = Parser.QueryHashToArray().q;
-    return Cotroller.RewriteURI(range, q);
+    const o = Parser.QueryHashToArray();
+    o.tbs = `qdr:${Controller.Validate(range)}`;
+    o.tbm = '';
+    const parameter = Parser.BuildParameterByQueryObject(o);
+    return Parser.RewriteURI(parameter);
   },
 };
 

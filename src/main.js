@@ -1,9 +1,9 @@
 const Parser = require('./parser.js');
-const Controller = require('./term/controller.js');
+const LanguageController = require('./language/controller.js');
+const TermController = require('./term/controller.js');
 const LanguageView = require('./language/view.js');
 const TermView = require('./term/view.js');
 const MainView = require('./mainView.js');
-const Model = require('./model.js');
 
 const Add = () => {
   const own = document.querySelector('.quick-custom-gsearch');
@@ -21,8 +21,12 @@ const Add = () => {
     // TermView
     const termDiv = TermView.CreateElement();
     TermView.BindElement(termDiv);
-    const range = Controller.GetRangeByQueryString(Model);
+
+    const o = Parser.QueryHashToArray();
+    const range = TermController.Validate(o.tbs);
+    const language = LanguageController.Validate(o.lr);
     TermView.SetCssState(range);
+    LanguageView.SetCssState(language);
     return true;
   }
   return false;
