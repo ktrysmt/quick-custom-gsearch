@@ -10,6 +10,7 @@ const LanguageView = {
     const value = (language) ? `=${language}` : '=""';
     const a = document.querySelector(`.quick-custom-gsearch .language a[data${value}]`);
     a.className = 'active';
+    return true;
   },
   CreateElement() {
     const languages = Model.SWITCH_LANGUAGES;

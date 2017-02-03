@@ -10,12 +10,10 @@
 
 Please download and install from [Chrome WebStore](https://chrome.google.com/webstore/detail/quick-custom-gsearch/dcdmfmmmmpjgfaffnaokjpifnihmhaon?utm_source=chrome-app-launcher-info-dialog).
 
-## Plan of features
-
-### v0.7
-- Add a switching languages interface for search result.
-
 ## Change Log
+
+### v0.7.0
+- Add a switching languages interface.
 
 ### v0.6.1
 

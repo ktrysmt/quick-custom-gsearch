@@ -1,6 +1,7 @@
 const Model = {
   TERM_VALUE_PATTERN: /^(m3|m6|y2|y3|y)$/,
   TERM_ARG_PATTERN: /^qdr:(m3|m6|y|y2|y3)$/,
+  TERM_INCLUDE_COMMA_PATTERN: /^(qdr:)(m3|m6|y|y2|y3),/,
   TERM: {
     0: { data: 'none', text: 'Any time' },
     1: { data: 'm3', text: 'Past 3 Month' },
