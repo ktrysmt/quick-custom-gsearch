@@ -1,4 +1,5 @@
 .DS_Store
+dist.zip
 .fusebox
 node_modules
 dist/script.js.map
