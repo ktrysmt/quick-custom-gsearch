@@ -4,6 +4,7 @@ const path = require('path');
 module.exports = {
   entry: {
     script: './src/main.js',
+    options: './src/options.js',
   },
   output: {
     path: path.resolve('dist/'),
