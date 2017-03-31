@@ -3,8 +3,8 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    script: './src/main.js',
-    options: './src/options.js',
+    script: './src/script/main.js',
+    options: './src/options/main.js',
   },
   output: {
     path: path.resolve('dist/'),
