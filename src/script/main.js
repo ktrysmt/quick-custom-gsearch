@@ -25,6 +25,7 @@ const Add = () => {
     const o = Parser.QueryHashToArray();
     const range = TermController.Validate(o.tbs);
     const language = LanguageController.Validate(o.lr);
+
     TermView.SetCssState(range);
     LanguageView.SetCssState(language);
     return true;
