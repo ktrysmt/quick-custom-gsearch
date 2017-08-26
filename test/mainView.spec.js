@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 const expect = require('chai').expect;
-const View = require('../src/view.js');
+const View = require('../src/mainView.js');
 const Model = require('../src/model.js');
 
-describe('View >', () => {
+describe('mainView >', () => {
   const range = 'm3';
 
   it('CreateElement', () => {
