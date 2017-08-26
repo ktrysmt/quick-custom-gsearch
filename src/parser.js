@@ -7,6 +7,12 @@ const Parser = {
   },
   IsTextSearch() {
     const o = Parser.QueryHashToArray();
+    if (
+      (typeof o.tbs === 'undefined' || typeof o.lr === 'undefined')
+      && Object.keys(o).length < 3
+    ) {
+      return false;
+    }
     if (typeof o.tbm === 'undefined' || o.tbm === '') {
       return true;
     }

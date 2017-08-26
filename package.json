@@ -12,7 +12,7 @@
   "scripts": {
     "start": "yarn build:dev -- -w",
     "lint": "eslint --fix src/**/*.js",
-    "test": "mocha --require test/setup.js test/**/*.spec.js",
+    "test": "mocha -c --require test/setup.js test/**/*.spec.js",
     "build:dev": "webpack -d",
     "build:prod": "webpack"
   }

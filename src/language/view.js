@@ -39,7 +39,9 @@ const LanguageView = {
   QuickChange() {
     const language = this.getAttribute('data');
     const o = Parser.QueryHashToArray();
-    o.lr = Controller.Validate(language);
+    if (language !== 'none') {
+      o.lr = Controller.Validate(language);
+    }
     const parameter = Parser.BuildParameterByQueryObject(o);
     return Parser.RewriteURI(parameter);
   },
