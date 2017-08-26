@@ -12,6 +12,9 @@ Please download and install from [Chrome WebStore](https://chrome.google.com/web
 
 ## Change Log
 
+### v0.7.1
+- Fix the bug in map view.
+
 ### v0.7.0
 - Add a switching languages interface.
 
