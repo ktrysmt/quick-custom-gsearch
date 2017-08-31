@@ -34,7 +34,11 @@ const TermView = {
   QuickChange() {
     const range = this.getAttribute('data');
     const o = Parser.QueryHashToArray();
-    o.tbs = `qdr:${Controller.Validate(range)}`;
+    if (range === 'none') {
+      delete o.tbs;
+    } else {
+      o.tbs = `qdr:${Controller.Validate(range)}`;
+    }
     o.tbm = '';
     const parameter = Parser.BuildParameterByQueryObject(o);
     return Parser.RewriteURI(parameter);

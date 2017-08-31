@@ -1,25 +1,28 @@
 /* eslint-env mocha */
 const expect = require('chai').expect;
-const Controller = require('../../src/term/controller.js');
+const Controller = require('../../src/language/controller.js');
 
-describe('Controller >', () => {
-  it('GetRangeByQueryString', () => {
-    expect(Controller.GetRangeByQueryString()).to.equal('y');
-  });
-
-  describe('RewriteURI', () => {
-    it("should be search 'hoge' as 3month", () => {
-      const range = 'm3';
-      const q = 'hoge';
-      const href = Controller.RewriteURI(range, q);
-      expect(href).to.equal('/search?hl=ja&site=webhp&biw=810&bih=1306&q=hoge&oq=hoge&ie=UTF-8&tbs=qdr:m3&tbm=');
+describe('Language/Controller >', () => {
+  describe('Validate', () => {
+    it('null case', () => {
+      expect(Controller.Validate()).to.equal('');
     });
 
-    it("should be search 'fuga' as all", () => {
-      const range = '';
-      const q = 'fuga';
-      const href = Controller.RewriteURI(range, q);
-      expect(href).to.equal('/search?hl=ja&site=webhp&biw=810&bih=1306&q=fuga&oq=fuga&ie=UTF-8&tbm=');
+    it('empty string case', () => {
+      expect(Controller.Validate('')).to.equal('');
+    });
+
+    it('normal case (lang_en)', () => {
+      expect(Controller.Validate('lang_en')).to.equal('lang_en');
+    });
+
+    it('normal case (lang_local)', () => {
+      expect(Controller.Validate('lang_local')).to.equal('lang_local');
+    });
+
+    it('illegal case', () => {
+      expect(Controller.Validate(null)).to.equal('none');
+      expect(Controller.Validate('lang_other')).to.equal('none');
     });
   });
 });
