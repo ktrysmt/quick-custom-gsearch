@@ -6,6 +6,8 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
+    "flow-bin": "^0.56.0",
+    "flow-typed": "^2.2.0",
     "jsdom": "^9.9.1",
     "mocha": "^3.2.0",
     "uglify-js": "git://github.com/mishoo/UglifyJS2#harmony",
@@ -17,5 +19,10 @@
     "test": "mocha -c --require test/setup.js test/**/*.spec.js",
     "build:dev": "webpack -d",
     "build:prod": "webpack"
+  },
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2"
   }
 }
