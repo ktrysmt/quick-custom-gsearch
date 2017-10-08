@@ -10,8 +10,9 @@
     "flow-typed": "^2.2.0",
     "jsdom": "^9.9.1",
     "mocha": "^3.2.0",
+    "uglify-es": "git://github.com/mishoo/UglifyJS2#harmony",
     "uglify-js": "git://github.com/mishoo/UglifyJS2#harmony",
-    "webpack": "beta"
+    "webpack": "^3.0.0-rc.2"
   },
   "scripts": {
     "start": "yarn build:dev -- -w",
