@@ -16,9 +16,17 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'remove-flow-types-loader',
-        enforce: 'pre',
+        loader: 'babel-loader',
+        options: {
+          presets: ['es2015', 'react', 'flow']
+        }
       },
+      // {
+      //   test: /\.js$/,
+      //   exclude: /node_modules/,
+      //   loader: 'remove-flow-types-loader',
+      //   enforce: 'pre',
+      // },
     ],
   },
   plugins: [
