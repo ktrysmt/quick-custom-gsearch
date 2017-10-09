@@ -1,6 +1,4 @@
-const webpack = require('webpack');
 const path = require('path');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -21,17 +19,7 @@ module.exports = {
           presets: ['es2015', 'react', 'flow']
         }
       },
-      // {
-      //   test: /\.js$/,
-      //   exclude: /node_modules/,
-      //   loader: 'remove-flow-types-loader',
-      //   enforce: 'pre',
-      // },
     ],
   },
-  plugins: [
-    new UglifyJsPlugin(),
-    new webpack.optimize.OccurrenceOrderPlugin(),
-  ],
 };
 
