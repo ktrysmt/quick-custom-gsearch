@@ -18,34 +18,57 @@ const Frame = styled.div`
 const Link = styled.a`
   background-color: white;
   color: #777;
-display: block;
+  display: block;
   padding: 10px;
   cursor: pointer;
   text-decoration: none;
-`
+`;
+
+const Term = styled.div`
+  box-shadow: rgb(214, 214, 214) 0 1px 5px 0;
+`;
+
+const Language = styled.div`
+  box-shadow: rgb(214, 214, 214) 0 1px 5px 0;
+  margin-top: 5px;
+`;
+
+const Space = styled.span`
+  height: 5px;
+  display: block;
+  width: 100%;
+`;
+
+const Padding = styled.span`
+  height: 1.7em;
+  display: block;
+  padding: 8px 0 0 6px;
+  color: #aaa;
+  font-weight: bold;
+  font-size: smaller;
+`;
 
 export default (props) => {
   const { data } = props;
-
   return (
     <Frame>
-      <div className="term">
-        <span className="head">Term</span>
-        <a data="none" className="active">Any time</a>
-        <a data="m3">Past 3 Month</a>
-        <a data="m6">Past 6 Month</a>
-        <a data="y">Past 1 Year</a>
-        <a data="y2">Past 2 Year</a>
-        <a data="y3">Past 3 Year</a>
-        <span></span>
-      </div>
-      <div className="language">
-        <span className="head">Language</span>
-        <a data="" className="active">Any pages</a>
-        <a data="lang_en">English pages</a>
-        <a data="lang_local">Local pages</a>
-        <span></span>
-      </div>
+      <Term>
+        <Padding>Term</Padding>
+        <Link data="none" className="active">Any time</Link>
+        <Link data="m3">Past 3 Month</Link>
+        <Link data="m6">Past 6 Month</Link>
+        <Link data="y">Past 1 Year</Link>
+        <Link data="y2">Past 2 Year</Link>
+        <Link data="y3">Past 3 Year</Link>
+        <Space />
+      </Term>
+      <Language className="language">
+        <Padding>Language</Padding>
+        <Link data="" className="active">Any pages</Link>
+        <Link data="lang_en">English pages</Link>
+        <Link data="lang_local">Local pages</Link>
+        <Space />
+      </Language>
     </Frame> 
   )
 }
