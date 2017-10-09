@@ -2,7 +2,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { Link, Padding, Space } from './common';
+import { Link, Padding, Space } from './style';
 
 const Term = styled.div`
   box-shadow: rgb(214, 214, 214) 0 1px 5px 0;
