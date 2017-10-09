@@ -1,9 +1,34 @@
 import React from 'react'
+import styled from 'styled-components'
 
-export default function Frame (props) {
+const Frame = styled.div`
+  float: left;
+  background: #fff;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 999999;
+  display: block;
+  width: 110px;
+  height: auto;
+  margin-left: 10px;
+  top: 169px;
+`;
+
+const Link = styled.a`
+  background-color: white;
+  color: #777;
+display: block;
+  padding: 10px;
+  cursor: pointer;
+  text-decoration: none;
+`
+
+export default (props) => {
   const { data } = props;
+
   return (
-    <div className="quick-custom-gsearch">
+    <Frame>
       <div className="term">
         <span className="head">Term</span>
         <a data="none" className="active">Any time</a>
@@ -21,6 +46,7 @@ export default function Frame (props) {
         <a data="lang_local">Local pages</a>
         <span></span>
       </div>
-    </div> 
+    </Frame> 
   )
 }
+
