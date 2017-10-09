@@ -1,8 +1,5 @@
 {
   "devDependencies": {
-    "babel-eslint": "^8.0.1",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-preset-flow": "^6.23.0",
     "chai": "^3.5.0",
     "eslint": "^3.18.0",
     "eslint-config-airbnb": "^14.1.0",
@@ -12,9 +9,9 @@
     "eslint-plugin-react": "^6.10.3",
     "flow-bin": "^0.56.0",
     "flow-typed": "^2.2.0",
-    "flowtype-loader": "^0.2.2",
     "jsdom": "^9.9.1",
     "mocha": "^3.2.0",
+    "remove-flow-types-loader": "^1.0.0",
     "uglify-js": "git://github.com/mishoo/UglifyJS2#harmony",
     "uglifyjs-webpack-plugin": "beta",
     "webpack": "^3.6.0"

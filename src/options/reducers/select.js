@@ -1,9 +1,8 @@
-// @flow
-
 import { SET_VISIBLE, SET_INVISIBLE } from '../actions/';
-import type { Action } from '../types/action';
+// import type { Action } from '../types/action';
 
-export default function select(state: Array<string> = [], action: Action) {
+// export default function select(state: Array<string> = [], action: Action) {
+export default function select(state, action) {
   switch (action.type) {
     case SET_VISIBLE:
       return [

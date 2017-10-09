@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const FlowtypePlugin = require('flowtype-loader/plugin');
 
 module.exports = {
   entry: {
@@ -17,7 +16,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'flowtype-loader',
+        loader: 'remove-flow-types-loader',
         enforce: 'pre',
       },
     ],
@@ -25,7 +24,6 @@ module.exports = {
   plugins: [
     new UglifyJsPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new FlowtypePlugin(),
   ],
 };
 
