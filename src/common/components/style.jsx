@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Link = styled.a`
   background-color: white;
-  color: #777;
+ color: #777;
   display: block;
   padding: 10px;
   cursor: pointer;

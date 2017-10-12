@@ -2,7 +2,7 @@
 
 import styled from 'styled-components';
 
-const Frame = styled.div`
+const Frame: React$ComponentType<any> = styled.div`
   background: #fff;
   position: absolute;
   left: 30%;
@@ -15,6 +15,4 @@ const Frame = styled.div`
   top: 169px;
 `;
 
-export default {
-  Frame,
-};
+export default Frame;

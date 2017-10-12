@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import Frame from '../common/components/frame';
+import Frame from './components/frame';
 
 function sum(a: number, b: number) {
   return a + b;

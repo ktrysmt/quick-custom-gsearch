@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   entry: {
     script: './src/script/main.js',
-    options: './src/options/main.js',
+    options: './src/options/main.jsx',
   },
   output: {
     path: path.resolve('dist/'),
@@ -12,14 +12,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
-          presets: ['es2015', 'react', 'flow']
-        }
+          presets: ['es2015', 'react', 'flow'],
+        },
       },
     ],
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   },
 };
 
