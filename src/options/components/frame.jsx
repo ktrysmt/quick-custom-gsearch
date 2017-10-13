@@ -8,12 +8,10 @@ import Term from '../../common/components/term';
 const FrameBase = styled.div`
   background: #fff;
   position: absolute;
-  left: 37%;
   z-index: 999999;
   display: block;
   width: 180px;
   height: auto;
-  margin-left: 10px;
   top: 169px;
 `;
 
