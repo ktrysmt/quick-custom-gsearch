@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Frame = styled.div`
+export const Frame = styled.div`
   float: left;
   background: #fff;
   position: absolute;
@@ -14,6 +14,3 @@ const Frame = styled.div`
   top: 169px;
 `;
 
-export default {
-  Frame,
-};

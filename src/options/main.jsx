@@ -3,17 +3,18 @@
 import React from 'react';
 import { render } from 'react-dom';
 import Frame from './components/frame';
+import Header from './components/header';
+import metadata from '../common/metadata';
 
-function sum(a: number, b: number) {
-  return a + b;
-}
-
-console.log(sum(1, 2));
-
-const dummyData = ['hoge', 'fuga'];
+const Root = (props: any) => (
+  <div>
+    <Header {...props} />
+    <Frame />
+  </div>
+);
 
 render(
-  <Frame data={dummyData} />,
+  <Root {...metadata} />,
   document.getElementById('root'),
 );
 

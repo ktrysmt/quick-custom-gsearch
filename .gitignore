@@ -3,3 +3,5 @@ dist.zip
 .fusebox
 node_modules
 dist/script.js.map
+dist/options.js
+dist/script.js

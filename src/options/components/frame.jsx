@@ -1,12 +1,14 @@
 // @flow
 
+import React from 'react';
 import styled from 'styled-components';
+import Language from '../../common/components/language';
+import Term from '../../common/components/term';
 
-const Frame: React$ComponentType<any> = styled.div`
+const FrameBase = styled.div`
   background: #fff;
   position: absolute;
-  left: 30%;
-  right: 50%;
+  left: 37%;
   z-index: 999999;
   display: block;
   width: 180px;
@@ -15,4 +17,10 @@ const Frame: React$ComponentType<any> = styled.div`
   top: 169px;
 `;
 
-export default Frame;
+export default (props: any) => (
+  <FrameBase {...props}>
+    <Language />
+    <Term />
+  </FrameBase>
+);
+
