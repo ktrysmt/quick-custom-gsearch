@@ -23,7 +23,7 @@ const Version = styled.div`
 
 export default (props: any) => (
   <HeaderBase>
-    <Title>{props.name}</Title>
-    <Version>{props.version}</Version>
+    <Title>Options</Title>
+    <Version>{props.name} - v{props.version}</Version>
   </HeaderBase>
 );
