@@ -1,24 +1,29 @@
-import { SET_VISIBLE, SET_INVISIBLE } from '../actions/';
-// import type { Action } from '../types/action';
+// @flow
 
-// export default function select(state: Array<string> = [], action: Action) {
-export default function select(state, action) {
-  switch (action.type) {
-    case SET_VISIBLE:
-      return [
-        ...state,
-        {
-          visible: true,
-        },
-      ];
-    case SET_INVISIBLE:
-      return [
-        ...state,
-        {
-          visible: false,
-        },
-      ];
-    default:
-      return state;
+import type { Action } from '../types/action';
+import type { State } from '../types/state';
+import types from '../types/select';
+
+const initialState: State = {
+  select: [],
+  count: 0,
+};
+
+const selectReducers = {
+  [types.SET_VISIBLE]: state => (
+     [...state]
+  ),
+  [types.SET_VISIBLE]: state => (
+     [...state]
+  ),
+  [types.COUNTER_INCREMENT]: (state, action) => (
+     { ...state, count: action.counterIncrement }
+  ),
+};
+
+export default (state: State = initialState, action: Action) => {
+  if (selectReducers[action.type]) {
+    return selectReducers[action.type](state, action);
   }
-}
+  return state;
+};

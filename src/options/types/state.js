@@ -1,5 +1,6 @@
 // @flow
 
 export interface State {
-  data: Array<string>
+  select: Array<string>,
+  count: number,
 }

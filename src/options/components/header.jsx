@@ -3,6 +3,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import metadata from '../../common/metadata';
+
 const HeaderBase = styled.header`
   background-color: #4dbddb;
   display: flex;
@@ -21,9 +23,9 @@ const Version = styled.div`
   padding: 22px 20px;
 `;
 
-export default (props: any) => (
+export default () => (
   <HeaderBase>
     <Title>Options</Title>
-    <Version>{props.name} - v{props.version}</Version>
+    <Version>{metadata.name} - v{metadata.version}</Version>
   </HeaderBase>
 );

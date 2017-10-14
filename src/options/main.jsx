@@ -1,19 +1,18 @@
-// @flow
-
 import React from 'react';
+import { createStore } from 'redux';
 import { render } from 'react-dom';
-import Frame from './components/frame';
-import Header from './components/header';
-import Wrapper from './components/wrapper';
-import metadata from '../common/metadata';
+import Root from './components/root';
+import reducers from './reducers';
 
-render(
-  <div>
-    <Header {...metadata} />
-    <Wrapper>
-      <Frame />
-    </Wrapper>
-  </div>,
-  document.getElementById('root'),
-);
+const store = createStore(reducers);
+
+const initdata = {
+  state: store.getState(),
+  dispatch: store.dispatch,
+};
+
+const drawer = () => render(<Root {...initdata} />, document.getElementById('root'));
+
+store.subscribe(drawer);
+drawer();
 

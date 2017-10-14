@@ -1,0 +1,8 @@
+// @flow
+
+export default {
+  SET_VISIBLE: 'SET_VISIBLE',
+  SET_INVISIBLE: 'SET_INVISIBLE',
+  COUNTER_INCREMENT: 'COUNTER_INCREMENT',
+};
+
