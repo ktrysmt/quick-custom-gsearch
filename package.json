@@ -5,15 +5,19 @@
     "eslint-config-airbnb-base": "^11.0.0",
     "eslint-plugin-import": "^2.2.0",
     "jsdom": "^9.9.1",
-    "mocha": "^3.2.0",
+    "mocha": "^8.0.1",
     "uglify-js": "git://github.com/mishoo/UglifyJS2#harmony",
-    "webpack": "beta"
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
   },
   "scripts": {
     "start": "yarn build:dev -- -w",
     "lint": "eslint --fix src/**/*.js",
     "test": "mocha -c --require test/setup.js test/**/*.spec.js",
     "build:dev": "webpack -d",
-    "build:prod": "webpack"
+    "build:prod": "webpack -p"
+  },
+  "dependencies": {
+    "uglify-es": "git://github.com/mishoo/UglifyJS2.git#harmony"
   }
 }
