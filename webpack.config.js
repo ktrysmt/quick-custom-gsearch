@@ -10,8 +10,10 @@ module.exports = {
     filename: '[name].js',
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
   ],
+  optimization: {
+    minimize: true
+  }
 };
 
