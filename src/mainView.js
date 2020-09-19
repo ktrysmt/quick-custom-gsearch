@@ -10,7 +10,7 @@ const MainView = {
     return mainDiv;
   },
   BindElement(div) {
-    const ucs = document.querySelector('div#ucs');
+    const ucs = document.querySelector('div#main');
     ucs.insertBefore(div, ucs.firstChild);
   },
 };

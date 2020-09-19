@@ -2,7 +2,7 @@ const Model = require('./model.js');
 
 const Parser = {
   IsUCS() {
-    const ucs = document.querySelector('div#ucs');
+    const ucs = document.querySelector('div#main');
     return ucs !== null;
   },
   IsTextSearch() {
