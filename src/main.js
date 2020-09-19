@@ -32,6 +32,21 @@ const Add = () => {
   return false;
 };
 
+const CallOnscroll = () => {
+  function fixing() {
+    const e = document.querySelector('.quick-custom-gsearch');
+    const y = window.scrollY;
+    if (y > 90) {
+      e.style.position = 'fixed';
+      e.style.top = '70px';
+    } else {
+      e.style.position = 'absolute';
+      e.style.top = '159px';
+    }
+  }
+  window.onscroll = fixing;
+};
+
 const Main = () => {
   const Observer = new MutationObserver(() => {
     Add();
@@ -42,6 +57,8 @@ const Main = () => {
     Add();
     Observer.observe(elm, { childList: true });
   }
+
+  CallOnscroll();
 };
 
 Main();

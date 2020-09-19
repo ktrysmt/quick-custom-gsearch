@@ -11,7 +11,7 @@
     "webpack-cli": "^3.3.12"
   },
   "scripts": {
-    "start": "yarn build:dev -- -w",
+    "start": "webpack -d -w",
     "lint": "eslint --fix src/**/*.js",
     "test": "mocha -c --require test/setup.js test/**/*.spec.js",
     "build:dev": "webpack -d",
