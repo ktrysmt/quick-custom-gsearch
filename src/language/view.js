@@ -39,6 +39,10 @@ const LanguageView = {
   QuickChange() {
     const language = this.getAttribute('data');
     const o = Parser.QueryHashToArray();
+    if (Parser.IsOnlyQuery()) {
+      const plainQuery = window.location.search.substring(1).split('=')[1];
+      o.q = decodeURIComponent(plainQuery);
+    }
     if (language !== 'none') {
       o.lr = Controller.Validate(language);
     }
