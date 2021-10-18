@@ -34,6 +34,10 @@ const TermView = {
   QuickChange() {
     const range = this.getAttribute('data');
     const o = Parser.QueryHashToArray();
+    if (Parser.IsOnlyQuery()) {
+      const plainQuery = window.location.search.substring(1).split('=')[1];
+      o.q = decodeURIComponent(plainQuery);
+    }
     if (range === 'none') {
       delete o.tbs;
     } else {
