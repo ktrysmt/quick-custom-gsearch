@@ -9,9 +9,6 @@ module.exports = {
     path: path.resolve('dist/'),
     filename: '[name].js',
   },
-  plugins: [
-    new webpack.optimize.OccurrenceOrderPlugin(),
-  ],
   optimization: {
     minimize: true
   }
