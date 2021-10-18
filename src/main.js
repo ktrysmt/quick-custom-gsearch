@@ -11,7 +11,12 @@ const Add = () => {
     return false;
   }
 
-  if (Parser.IsTextSearch() === true && Parser.IsUCS() === true) {
+  if (
+    (
+      Parser.IsTextSearch() === true && Parser.IsUCS() === true
+    )
+    || Parser.IsOnlyQuery() === true
+  ) {
     // MainView
     const mainDiv = MainView.CreateElement();
     MainView.BindElement(mainDiv);

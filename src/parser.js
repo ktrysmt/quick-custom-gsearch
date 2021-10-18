@@ -55,6 +55,14 @@ const Parser = {
     window.location.href = path;
     return path;
   },
+  IsOnlyQuery() {
+    const str = window.location.search;
+    if (/^\?q=/.test(str) && str.indexOf('&') === -1) {
+      return true;
+    }
+
+    return false;
+  }
 };
 
 module.exports = Parser;
