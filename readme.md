@@ -52,6 +52,7 @@ npm run test
 6. Packing the dist dir if passed the test.
 
 ```sh
+npm run build:prod
 gzip -r dist.zip dist/
 ```
 
