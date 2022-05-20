@@ -19,7 +19,7 @@ Please download and install from [Chrome WebStore](https://chrome.google.com/web
 1. Define new version.
 
 ```sh
-# edit the version field.
+# edit the version field to upgrade semver.
 ${EDITOR} dist/manifest.json
 ```
 
@@ -53,8 +53,8 @@ npm run test
 
 ```sh
 npm run build:prod
-gzip -r dist.zip dist/
 ```
+and zip the `dist` dir.
 
 7. Upload it at the chrome developer site.
 
