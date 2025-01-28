@@ -1,4 +1,4 @@
-const Parser = require('./parser.js');
+
 const LanguageController = require('./language/controller.js');
 const TermController = require('./term/controller.js');
 const LanguageView = require('./language/view.js');
