@@ -1,4 +1,4 @@
-import { Parser } from '../types';
+import { Parser } from './types';
 
 export class ParserImpl implements Parser {
   IsTextSearch(query: string): boolean {

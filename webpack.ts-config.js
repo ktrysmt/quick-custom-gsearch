@@ -22,7 +22,7 @@ export default {
     ],
   },
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: ['.ts'],
   },
   optimization: {
     minimize: true,

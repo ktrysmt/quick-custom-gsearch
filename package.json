@@ -2,7 +2,7 @@
   "name": "chrome-extension",
   "version": "1.0.0",
   "scripts": {
-    "build": "webpack --config webpack.config.ts"
+    "build": "webpack --config webpack.config.js"
   },
   "devDependencies": {
     "@sveltejs/kit": "^0.0.30",

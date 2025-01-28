@@ -26,10 +26,10 @@ export interface TermView {
 
 // Add the missing Parser type definition
 export interface Parser {
-  parse(input: string): any; // Adjust return type as necessary
-  IsTextSearch(): boolean;
-  IsUCS(): boolean;
-  IsOnlyQuery(): boolean;
+  IsTextSearch(query: string): boolean;
+  IsUCS(query: string): boolean;
+  IsOnlyQuery(query: string): boolean;
+  QueryHashToArray(query: string): Array<[string, string]>;
 }
 
 // Add the MainController definition
